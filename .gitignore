@@ -1,0 +1,90 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+
+# Marimo-specific files
+.marimo/
+*.marimo.py.bak
+
+# Jupyter Notebook files (if any)
+.ipynb_checkpoints/
+*.ipynb
+
+# Data files (add specific patterns as needed)
+# Uncomment the following lines if you want to ignore data files
+# *.csv
+# *.xlsx
+# *.xls
+# *.json
+# *.parquet
+
+# Output files
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.svg
+figures/
+plots/
+output/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Cache directories
+.cache/
+.pytest_cache/
+.coverage
+.nyc_output
+
+# Operating system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Package manager files
+node_modules/
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Python package management
+Pipfile.lock
+poetry.lock
+# Keep uv.lock for reproducible environments
+# uv.lock

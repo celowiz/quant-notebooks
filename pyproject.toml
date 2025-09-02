@@ -1,0 +1,19 @@
+[project]
+name = "quant-notebooks"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "ipython>=8.37.0",
+    "marimo>=0.15.2",
+    "matplotlib>=3.10.6",
+    "numpy>=2.2.6",
+    "pandas>=2.3.2",
+    "pyarrow>=21.0.0",
+    "python-bcb>=0.3.3",
+    "quantstats>=0.0.76",
+    "seaborn>=0.13.2",
+    "xlrd>=2.0.2",
+    "yfinance>=0.2.65",
+]
