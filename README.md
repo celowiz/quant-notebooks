@@ -13,34 +13,81 @@ This repository is dedicated to learning [Marimo](https://marimo.io/) and conduc
 
 ```
 quant-notebooks/
-├── data/                    # Data files (Excel, CSV, etc.)
-│   └── IBOVDIA.XLS         # Historical Ibovespa data (1968-1997)
-├── ibov_por_governo.py     # Ibovespa analysis by government periods
-├── yfinance_guide.py       # YFinance usage guide and examples
-├── pyproject.toml          # Project dependencies
-└── README.md               # This file
+├── .github/
+│   └── workflows/
+│       └── export_html.yml      # GitHub Actions for HTML export
+├── notebooks/                   # All analysis notebooks organized by category
+│   ├── ai/                     # AI and machine learning applications
+│   ├── backtesting/            # Trading strategy backtesting
+│   ├── data extractor/         # Data collection and extraction tools
+│   │   └── yfinance_guide.py   # Comprehensive YFinance usage guide
+│   ├── data visualization/     # Data visualization and analysis
+│   │   └── b3_index_composition.py  # B3 stock index composition analysis
+│   ├── macroeconomics/         # Macroeconomic analysis
+│   ├── projects/               # Complete analysis projects
+│   │   └── ibov_por_governo.py # Ibovespa performance by government periods
+│   └── technical indicators/   # Technical analysis indicators
+│       └── stocks_momentum.py  # Stock momentum analysis
+├── data/                       # Data files (Excel, CSV, etc.)
+│   └── IBOVDIA.XLS            # Historical Ibovespa data (1968-1997)
+├── pyproject.toml             # Project dependencies
+└── README.md                  # This file
 ```
 
 ## 📊 Notebooks
 
-### [Ibovespa Performance by the Federal Government 🇧🇷](./ibov_por_governo.py)
-Analysis of Ibovespa (Brazilian stock index) performance across different federal government periods. This notebook combines historical data from 1968-1997 with modern data from YFinance to provide comprehensive analysis of market performance under different political administrations.
+### Projects
+
+#### [Ibovespa Performance by the Federal Government 🇧🇷](./notebooks/projects/ibov_por_governo.py)
+Comprehensive analysis of Ibovespa (Brazilian stock index) performance across different federal government periods. This notebook combines historical data from 1968-1997 with modern data from YFinance to provide insights into market performance under different political administrations.
 
 **Key Features:**
-- Historical data processing from Excel files
-- Data combination from multiple sources
-- Government period classification
-- Performance visualization and analysis
+- Historical data processing from Excel files (1968-1997)
+- Modern data integration via YFinance (1998-present)
+- Government period classification and analysis
+- Performance visualization and statistical analysis
+- Long-term trend analysis across political cycles
 
-### [Guide to Using YFinance with Python for Effective Stock Analysis](./yfinance_guide.py)
+### Data Extraction
+
+#### [Guide to Using YFinance with Python for Effective Stock Analysis](./notebooks/data%20extractor/yfinance_guide.py)
 Comprehensive guide demonstrating how to use the YFinance library for stock market data analysis. Covers everything from basic setup to advanced data manipulation techniques.
 
 **Key Features:**
 - Basic stock information retrieval
 - Historical price data analysis
-- Intraday data processing
+- Intraday data processing with minute-level intervals
 - Multi-ticker bulk data analysis
 - Returns and volatility calculations
+- Dividend and split analysis
+- Financial statements access
+- ESG data retrieval
+- Analyst recommendations
+- Options data access
+- Visualization examples
+
+### Data Visualization
+
+#### [B3 Index Composition](./notebooks/data%20visualization/b3_index_composition.py)
+Interactive analysis of Brazilian stock exchange (B3) index compositions. This notebook allows users to explore the composition of various B3 indices and analyze stock weightings.
+
+**Key Features:**
+- Real-time index composition data from B3 API
+- Interactive index selection dropdown
+- Stock weighting analysis and visualization
+- Portfolio composition breakdown
+- Data export capabilities (CSV and Parquet)
+- Comprehensive coverage of major B3 indices (IBOV, IBrX 100, IBrX 50, etc.)
+
+### Technical Indicators
+
+#### [Stock Momentum Analysis](./notebooks/technical%20indicators/stocks_momentum.py)
+Technical analysis notebook focused on momentum indicators for stock analysis.
+
+**Key Features:**
+- Momentum indicator calculations
+- Technical analysis tools
+- Stock performance metrics
 
 ## 🛠️ Technologies Used
 
@@ -51,6 +98,10 @@ Comprehensive guide demonstrating how to use the YFinance library for stock mark
 - **[Seaborn](https://seaborn.pydata.org/)**: Statistical data visualization
 - **[NumPy](https://numpy.org/)**: Numerical computing
 - **[QuantStats](https://github.com/ranaroussi/quantstats)**: Portfolio analytics
+- **[python-bcb](https://github.com/wilsonfreitas/python-bcb)**: Brazilian Central Bank data access
+- **[Requests](https://docs.python-requests.org/)**: HTTP library for API requests
+- **[PyArrow](https://arrow.apache.org/docs/python/)**: Fast data processing and Parquet support
+- **[xlrd](https://github.com/python-excel/xlrd)**: Excel file reading capabilities
 
 ## 🚀 Getting Started
 
@@ -79,15 +130,18 @@ pip install -e .
 
 3. Run Marimo notebooks:
 ```bash
-# Activate virtual environment if using uv
-uv run marimo edit ibov_por_governo.py
-# or
-uv run marimo edit yfinance_guide.py
+# Run specific notebooks with uv
+uv run marimo edit notebooks/projects/ibov_por_governo.py
+uv run marimo edit "notebooks/data extractor/yfinance_guide.py"
+uv run marimo edit "notebooks/data visualization/b3_index_composition.py"
+
+# Or run any notebook in the notebooks directory
+uv run marimo edit notebooks/path/to/your/notebook.py
 ```
 
 Or if using pip:
 ```bash
-marimo edit ibov_por_governo.py
+marimo edit "notebooks/projects/ibov_por_governo.py"
 ```
 
 ## 📈 Data Sources
