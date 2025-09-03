@@ -1,0 +1,64 @@
+name: Export Marimo Notebooks to HTML
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  export-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        run: uv pip install marimo
+
+      - name: Convert .py notebooks to HTML
+        run: |
+          shopt -s globstar
+          for file in notebooks/**/*.py; do
+            echo "Exporting $file..."
+            marimo export html "$file" -o "${file%.py}.html"
+          done
+
+      - name: Generate index.html with Tailwind
+        run: |
+          echo "<!DOCTYPE html>" > index.html
+          echo "<html lang='en'>" >> index.html
+          echo "<head>" >> index.html
+          echo "  <meta charset='UTF-8'>" >> index.html
+          echo "  <meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
+          echo "  <title>Quant Notebooks</title>" >> index.html
+          echo "  <script src='https://cdn.tailwindcss.com'></script>" >> index.html
+          echo "</head>" >> index.html
+          echo "<body class='bg-gray-50 text-gray-900 font-sans'>" >> index.html
+          echo "  <div class='max-w-4xl mx-auto p-8'>" >> index.html
+          echo "    <h1 class='text-3xl font-bold mb-6'>📚 Quant Notebooks</h1>" >> index.html
+          echo "    <ul class='space-y-3'>" >> index.html
+          for file in $(find notebooks -name "*.html" | sort); do
+            url=$(echo $file | sed 's/ /%20/g')
+            name=$(basename "$file" .html)
+            echo "      <li>" >> index.html
+            echo "        <a href='$url' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition'>" >> index.html
+            echo "          <span class='font-medium'>$name</span><br>" >> index.html
+            echo "          <span class='text-sm text-gray-500'>$file</span>" >> index.html
+            echo "        </a>" >> index.html
+            echo "      </li>" >> index.html
+          done
+          echo "    </ul>" >> index.html
+          echo "  </div>" >> index.html
+          echo "</body></html>" >> index.html
+
+      - name: Commit and push HTML files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add notebooks/**/*.html index.html
+          git commit -m "Auto-export notebooks to HTML + update index" || echo "No changes to commit"
+          git push
