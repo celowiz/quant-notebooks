@@ -19,14 +19,14 @@ quant-notebooks/
 ├── notebooks/                   # All analysis notebooks organized by category
 │   ├── ai/                     # AI and machine learning applications
 │   ├── backtesting/            # Trading strategy backtesting
-│   ├── data extractor/         # Data collection and extraction tools
+│   ├── data_extractor/         # Data collection and extraction tools
 │   │   └── yfinance_guide.py   # Comprehensive YFinance usage guide
-│   ├── data visualization/     # Data visualization and analysis
+│   ├── data_visualization/     # Data visualization and analysis
 │   │   └── b3_index_composition.py  # B3 stock index composition analysis
 │   ├── macroeconomics/         # Macroeconomic analysis
 │   ├── projects/               # Complete analysis projects
 │   │   └── ibov_por_governo.py # Ibovespa performance by government periods
-│   └── technical indicators/   # Technical analysis indicators
+│   └── technical_indicators/   # Technical analysis indicators
 │       └── stocks_momentum.py  # Stock momentum analysis
 ├── data/                       # Data files (Excel, CSV, etc.)
 │   └── IBOVDIA.XLS            # Historical Ibovespa data (1968-1997)
@@ -50,7 +50,7 @@ Comprehensive analysis of Ibovespa (Brazilian stock index) performance across di
 
 ### Data Extraction
 
-#### [Guide to Using YFinance with Python for Effective Stock Analysis](./notebooks/data%20extractor/yfinance_guide.py)
+#### [Guide to Using YFinance with Python for Effective Stock Analysis](./notebooks/data_extractor/yfinance_guide.py)
 Comprehensive guide demonstrating how to use the YFinance library for stock market data analysis. Covers everything from basic setup to advanced data manipulation techniques.
 
 **Key Features:**
@@ -68,7 +68,7 @@ Comprehensive guide demonstrating how to use the YFinance library for stock mark
 
 ### Data Visualization
 
-#### [B3 Index Composition](./notebooks/data%20visualization/b3_index_composition.py)
+#### [B3 Index Composition](./notebooks/data_visualization/b3_index_composition.py)
 Interactive analysis of Brazilian stock exchange (B3) index compositions. This notebook allows users to explore the composition of various B3 indices and analyze stock weightings.
 
 **Key Features:**
@@ -81,7 +81,7 @@ Interactive analysis of Brazilian stock exchange (B3) index compositions. This n
 
 ### Technical Indicators
 
-#### [Stock Momentum Analysis](./notebooks/technical%20indicators/stocks_momentum.py)
+#### [Stock Momentum Analysis](./notebooks/technical_indicators/stocks_momentum.py)
 Technical analysis notebook focused on momentum indicators for stock analysis.
 
 **Key Features:**
@@ -132,8 +132,8 @@ pip install -e .
 ```bash
 # Run specific notebooks with uv
 uv run marimo edit notebooks/projects/ibov_por_governo.py
-uv run marimo edit "notebooks/data extractor/yfinance_guide.py"
-uv run marimo edit "notebooks/data visualization/b3_index_composition.py"
+uv run marimo edit notebooks/data_extractor/yfinance_guide.py
+uv run marimo edit notebooks/data_visualization/b3_index_composition.py
 
 # Or run any notebook in the notebooks directory
 uv run marimo edit notebooks/path/to/your/notebook.py

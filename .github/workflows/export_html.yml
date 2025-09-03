@@ -31,12 +31,9 @@ jobs:
 
       - name: Convert .py notebooks to HTML
         run: |
-          shopt -s globstar
-          for file in notebooks/**/*.py; do
-            if [ -f "$file" ]; then
-              echo "Exporting $file..."
-              uv run marimo export html "$file" -o "${file%.py}.html"
-            fi
+          find notebooks -name "*.py" -type f | while read -r file; do
+            echo "Exporting $file..."
+            uv run marimo export html "$file" -o "${file%.py}.html"
           done
 
       - name: Generate index.html with Tailwind
@@ -53,24 +50,22 @@ jobs:
           echo "  <div class='max-w-4xl mx-auto p-8'>" >> index.html
           echo "    <h1 class='text-3xl font-bold mb-6'>📚 Quant Notebooks</h1>" >> index.html
           
-          # Group notebooks by folder
-          for folder in $(find notebooks -type d -mindepth 1 | sort); do
-            # Check if folder contains any HTML files
-            if ls "$folder"/*.html 1> /dev/null 2>&1; then
+          # Process each category folder
+          for folder in notebooks/*/; do
+            if [ -d "$folder" ] && ls "$folder"*.html >/dev/null 2>&1; then
               folder_name=$(basename "$folder")
-              echo "    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>$folder_name</h2>" >> index.html
+              # Convert underscores to spaces for display
+              display_name=$(echo "$folder_name" | tr '_' ' ' | sed 's/\b\w/\u&/g')
+              echo "    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>$display_name</h2>" >> index.html
               echo "    <ul class='space-y-3 mb-6'>" >> index.html
               
-              # Process HTML files in this folder
-              for file in "$folder"/*.html; do
+              for file in "$folder"*.html; do
                 if [ -f "$file" ]; then
-                  # Properly encode the URL (replace spaces with %20)
-                  encoded_url=$(echo "$file" | sed 's/ /%20/g')
                   name=$(basename "$file" .html)
                   echo "      <li>" >> index.html
-                  echo "        <a href='$encoded_url' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>" >> index.html
+                  echo "        <a href='$file' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>" >> index.html
                   echo "          <span class='font-medium text-lg text-gray-800'>$name</span><br>" >> index.html
-                  echo "          <span class='text-sm text-gray-500'>$folder_name</span>" >> index.html
+                  echo "          <span class='text-sm text-gray-500'>$display_name</span>" >> index.html
                   echo "        </a>" >> index.html
                   echo "      </li>" >> index.html
                 fi

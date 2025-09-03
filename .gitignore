@@ -1,3 +1,6 @@
+# Python version files
+.python-version
+
 # Python-generated files
 __pycache__/
 *.py[oc]
