@@ -13,6 +13,7 @@ dependencies = [
     "pyarrow>=21.0.0",
     "python-bcb>=0.3.3",
     "quantstats>=0.0.76",
+    "requests>=2.32.5",
     "seaborn>=0.13.2",
     "xlrd>=2.0.2",
     "yfinance>=0.2.65",
