@@ -31,15 +31,51 @@ jobs:
 
       - name: Convert .py notebooks to HTML
         run: |
+          total_files=0
+          successful_conversions=0
+          failed_conversions=0
+          
           find notebooks -name "*.py" -type f | while read -r file; do
+            total_files=$((total_files + 1))
+            
             # TODO: Remove this skip condition later - temporarily skipping brl_sensitivity.py conversion
             if [[ "$file" == *"brl_sensitivity.py" ]]; then
-              echo "Skipping $file (temporary)"
+              echo "⏭️  Skipping $file (temporary)"
               continue
             fi
-            echo "Exporting $file..."
-            uv run marimo export html "$file" -o "${file%.py}.html"
+            
+            echo "🔄 Exporting $file..."
+            
+            # Set environment variable to prevent data directory access issues
+            if MARIMO_SKIP_DATA_ACCESS=1 uv run marimo export html "$file" -o "${file%.py}.html" 2>&1; then
+              echo "✅ Successfully exported $file"
+              successful_conversions=$((successful_conversions + 1))
+            else
+              echo "❌ Failed to export $file"
+              failed_conversions=$((failed_conversions + 1))
+              
+              # Show error details immediately
+              echo "--- Error details for $file ---"
+              MARIMO_SKIP_DATA_ACCESS=1 uv run marimo export html "$file" -o "${file%.py}.html" 2>&1 || true
+              echo "--- End error details ---"
+            fi
           done
+          
+          # Display conversion summary
+          echo ""
+          echo "=== CONVERSION SUMMARY ==="
+          echo "Total files processed: $total_files"
+          echo "Successful conversions: $successful_conversions"
+          echo "Failed conversions: $failed_conversions"
+          
+          if [ $failed_conversions -gt 0 ]; then
+            echo "⚠️  Some conversions failed. Check the logs above for details."
+            echo "CONVERSION_FAILED=true" >> $GITHUB_ENV
+            echo "FAILED_COUNT=$failed_conversions" >> $GITHUB_ENV
+          else
+            echo "🎉 All conversions completed successfully!"
+            echo "CONVERSION_FAILED=false" >> $GITHUB_ENV
+          fi
 
       - name: Generate index.html with Tailwind
         run: |
@@ -84,9 +120,28 @@ jobs:
 
 
       - name: Commit and push HTML files
+        if: always()  # Run even if some conversions failed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          
+          # Add only HTML files that were successfully created
           git add notebooks/**/*.html index.html
-          git commit -m "Auto-export notebooks to HTML + update index" || echo "No changes to commit"
+          
+          # Create commit message based on conversion results
+          if [ "$CONVERSION_FAILED" = "true" ]; then
+            commit_msg="Auto-export notebooks to HTML + update index (⚠️ $FAILED_COUNT failed)"
+          else
+            commit_msg="Auto-export notebooks to HTML + update index (✅ all successful)"
+          fi
+          
+          git commit -m "$commit_msg" || echo "No changes to commit"
           git push
+          
+          # Set workflow status based on conversion results
+          if [ "$CONVERSION_FAILED" = "true" ]; then
+            echo "⚠️ Workflow completed with $FAILED_COUNT failed conversions. Check the workflow logs for details."
+            exit 1  # Mark workflow as failed so it shows up in GitHub notifications
+          else
+            echo "🎉 Workflow completed successfully - all notebooks converted!"
+          fi

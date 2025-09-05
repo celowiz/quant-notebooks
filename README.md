@@ -127,6 +127,23 @@ Technical analysis notebook focused on momentum indicators for stock analysis.
 - **[PyArrow](https://arrow.apache.org/docs/python/)**: Fast data processing and Parquet support
 - **[xlrd](https://github.com/python-excel/xlrd)**: Excel file reading capabilities
 
+## 🔄 Automated HTML Export
+
+This repository includes an enhanced GitHub Actions workflow that automatically converts Marimo notebooks to HTML format on every push to the main branch.
+
+### Features:
+- **Robust Error Handling**: Continues processing even when some conversions fail
+- **Detailed Logging**: Comprehensive logs for successful and failed conversions in workflow output
+- **Visual Status Indicators**: Uses emojis and clear messaging in logs
+- **Smart Commit Messages**: Indicates success/failure status in commit messages
+- **Workflow Status**: Marks workflow as failed when conversions fail (triggers GitHub notifications)
+
+### Workflow Features:
+- ✅ **Successful conversions**: Marked with green checkmarks
+- ❌ **Failed conversions**: Clearly logged with error details in workflow output
+- 🔄 **Continues on error**: One failed notebook doesn't stop others
+- ⚠️ **GitHub notifications**: Workflow failure triggers built-in GitHub notifications
+
 ## 🚀 Getting Started
 
 ### Prerequisites

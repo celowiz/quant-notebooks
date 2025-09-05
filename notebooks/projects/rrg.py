@@ -154,8 +154,8 @@ def _():
     START_DATE = (datetime.now() - timedelta(days=730)).strftime('%Y-%m-%d')
 
     # Export files
-    OUTPUT_DIR = r'/data/rrg/{END_DATE}'
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    # OUTPUT_DIR = r'/data/rrg/{END_DATE}'
+    # os.makedirs(OUTPUT_DIR, exist_ok=True)
     return (
         BENCHMARKS,
         END_DATE,
