@@ -25,7 +25,9 @@ quant-notebooks/
 │   │   └── b3_index_composition.py  # B3 stock index composition analysis
 │   ├── macroeconomics/         # Macroeconomic analysis
 │   ├── projects/               # Complete analysis projects
-│   │   └── ibov_por_governo.py # Ibovespa performance by government periods
+│   │   ├── ibov_por_governo.py # Ibovespa performance by government periods
+│   │   ├── brl_sensitivity.py  # BRL currency sensitivity analysis
+│   │   └── rrg.py              # Interactive Relative Rotation Graph analysis
 │   └── technical_indicators/   # Technical analysis indicators
 │       └── stocks_momentum.py  # Stock momentum analysis
 ├── data/                       # Data files (Excel, CSV, etc.)
@@ -47,6 +49,28 @@ Comprehensive analysis of Ibovespa (Brazilian stock index) performance across di
 - Government period classification and analysis
 - Performance visualization and statistical analysis
 - Long-term trend analysis across political cycles
+
+#### [Relative Rotation Graph (RRG) Analysis 🔄](./notebooks/projects/rrg.py)
+Interactive implementation of the Relative Rotation Graph (RRG) technique for analyzing relative strength and momentum of multiple assets against benchmarks. This comprehensive analysis tool supports multiple asset universes with configurable parameters through an intuitive Marimo interface.
+
+**Key Features:**
+- **Multi-Universe Support**: Brazilian Stocks, US Stocks, US Sectors, World iShares MSCI ETFs
+- **Configurable Analysis Frequency**: Daily, Weekly, Monthly data analysis
+- **Interactive Marimo Interface**: Real-time parameter adjustment with dropdown controls
+- **Advanced Quadrant Visualization**: 
+  - Leading (Green): Strong performance, positive momentum
+  - Improving (Blue): Weak performance, improving momentum
+  - Lagging (Red): Weak performance, negative momentum
+  - Weakening (Yellow): Strong performance, declining momentum
+- **Trail Visualization**: 12-period movement history for each asset
+- **Smart Benchmark Selection**: Automatic benchmark assignment (^BVSP for Brazilian stocks, ^GSPC for US assets, XWD for World MSCI ETFs)
+- **Adaptive Lookback Periods**: Optimized for different frequencies (252/52/12 for D/W/M)
+- **Real-time Data Integration**: Live data from brapi.dev API and Yahoo Finance
+- **Comprehensive Asset Coverage**:
+  - Brazilian Stocks: Top liquid stocks from B3
+  - US Stocks: Major US equities (AAPL, GOOGL, MSFT, etc.)
+  - US Sectors: MSCI sector ETFs (XLE, XLU, XLB, XLP, XLK, XLV, XLI, XLF, XLY)
+  - World MSCI ETFs: Country-specific iShares ETFs (EWA, EWG, EWJ, etc.)
 
 ### Data Extraction
 
@@ -132,6 +156,7 @@ pip install -e .
 ```bash
 # Run specific notebooks with uv
 uv run marimo edit notebooks/projects/ibov_por_governo.py
+uv run marimo edit notebooks/projects/rrg.py
 uv run marimo edit notebooks/data_extractor/yfinance_guide.py
 uv run marimo edit notebooks/data_visualization/b3_index_composition.py
 
@@ -141,14 +166,17 @@ uv run marimo edit notebooks/path/to/your/notebook.py
 
 Or if using pip:
 ```bash
-marimo edit "notebooks/projects/ibov_por_governo.py"
+marimo edit "notebooks/projects/rrg.py"
 ```
 
 ## 📈 Data Sources
 
 - **Historical Ibovespa Data (1968-1997)**: [B3 Historical Statistics](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/indice-ibovespa-ibovespa-historic-statistics.htm)
 - **Modern Stock Data**: [Yahoo Finance](https://finance.yahoo.com/) via YFinance
+- **Brazilian Stock Data**: [brapi.dev API](https://brapi.dev/) for real-time Brazilian market data
 - **Brazilian Economic Data**: [Central Bank of Brazil (BCB)](https://www.bcb.gov.br/)
+- **US Market Data**: Yahoo Finance for US stocks, sectors, and indices
+- **International ETF Data**: iShares MSCI country and sector ETFs via Yahoo Finance
 
 ## 🤝 Contributing
 

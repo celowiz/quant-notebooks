@@ -32,6 +32,11 @@ jobs:
       - name: Convert .py notebooks to HTML
         run: |
           find notebooks -name "*.py" -type f | while read -r file; do
+            # TODO: Remove this skip condition later - temporarily skipping brl_sensitivity.py conversion
+            if [[ "$file" == *"brl_sensitivity.py" ]]; then
+              echo "Skipping $file (temporary)"
+              continue
+            fi
             echo "Exporting $file..."
             uv run marimo export html "$file" -o "${file%.py}.html"
           done
