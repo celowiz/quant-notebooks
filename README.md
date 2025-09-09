@@ -24,6 +24,7 @@ quant-notebooks/
 │   ├── data_visualization/     # Data visualization and analysis
 │   │   └── b3_index_composition.py  # B3 stock index composition analysis
 │   ├── macroeconomics/         # Macroeconomic analysis
+│   │   └── br_core_inflation.py # Brazil core inflation analysis
 │   ├── projects/               # Complete analysis projects
 │   │   ├── ibov_por_governo.py # Ibovespa performance by government periods
 │   │   ├── brl_sensitivity.py  # BRL currency sensitivity analysis
@@ -103,6 +104,28 @@ Interactive analysis of Brazilian stock exchange (B3) index compositions. This n
 - Data export capabilities (CSV and Parquet)
 - Comprehensive coverage of major B3 indices (IBOV, IBrX 100, IBrX 50, etc.)
 
+### Macroeconomics
+
+#### [Brazil Core Inflation Analysis 🇧🇷](./notebooks/macroeconomics/br_core_inflation.py)
+Comprehensive macroeconomic analysis of Brazil's core inflation measures using data from the Brazilian Central Bank (BCB) and IBGE. This educational notebook combines statistical analysis with monetary policy theory to provide insights into inflation dynamics and central bank decision-making.
+
+**Key Features:**
+- **Multiple Core Inflation Measures**: Analysis of EX0, EX3, DP, MS, P55, and headline IPCA
+- **Composite Core Indicator**: Creates a robust average of all core measures for better signal extraction
+- **Seasonal Decomposition**: Time series decomposition to separate trend, seasonal, and irregular components
+- **Policy-Relevant Metrics**: 
+  - 12-month cumulative inflation (standard targeting measure)
+  - 3-month annualized trends (momentum indicator)
+  - Seasonally adjusted series for underlying trend analysis
+- **Educational Content**: Detailed macroeconomic theory explanations for each analytical step
+- **Professional Visualizations**:
+  - Time series charts with policy interpretation guides
+  - Seasonal analysis with historical percentile bands
+  - Decomposition analysis showing trend vs seasonal effects
+- **Current vs Historical Analysis**: Compares recent inflation performance with historical seasonal patterns
+- **Central Bank Data Integration**: Direct access to BCB time series via SGS API
+- **Monetary Policy Context**: Explains how each measure relates to central bank decision-making
+
 ### Technical Indicators
 
 #### [Stock Momentum Analysis](./notebooks/technical_indicators/stocks_momentum.py)
@@ -176,6 +199,7 @@ uv run marimo edit notebooks/projects/ibov_por_governo.py
 uv run marimo edit notebooks/projects/rrg.py
 uv run marimo edit notebooks/data_extractor/yfinance_guide.py
 uv run marimo edit notebooks/data_visualization/b3_index_composition.py
+uv run marimo edit notebooks/macroeconomics/br_core_inflation.py
 
 # Or run any notebook in the notebooks directory
 uv run marimo edit notebooks/path/to/your/notebook.py
