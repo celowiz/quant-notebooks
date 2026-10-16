@@ -1,0 +1,33 @@
+{
+  "repo": "https://github.com/celowiz/quant-notebooks",
+  "portfolio": "https://celowiz.github.io/",
+  "featured": "rrg",
+  "themes": ["Dados", "Visualização", "Macro", "Projetos", "Indicadores técnicos"],
+  "levels": ["Iniciante", "Intermediário", "Avançado"],
+  "notebooks": [
+    {"id": "rrg", "path": "notebooks/projects/rrg", "theme": "Projetos", "level": "Avançado",
+     "title": "Relative Rotation Graph (RRG)",
+     "desc": "Força relativa e momentum de ativos contra um benchmark, com os quatro quadrantes de rotação de Julius de Kempenaer.",
+     "tags": ["RRG", "força relativa", "momentum", "setores"], "preview": "rrg", "date": "set/2025"},
+    {"id": "yfinance_guide", "path": "notebooks/data_extractor/yfinance_guide", "theme": "Dados", "level": "Iniciante",
+     "title": "Guia de yfinance para análise de ações",
+     "desc": "Do básico ao avançado: preços históricos, dividendos, splits, demonstrativos, opções e volatilidade com a biblioteca yfinance.",
+     "tags": ["yfinance", "pandas", "OHLCV"], "preview": "line", "date": "2025"},
+    {"id": "b3_index_composition", "path": "notebooks/data_visualization/b3_index_composition", "theme": "Visualização", "level": "Iniciante",
+     "title": "Composição dos índices da B3",
+     "desc": "Baixa a carteira teórica dos índices da B3 (Ibovespa, IBrX, setoriais) e visualiza os pesos dos componentes.",
+     "tags": ["Ibovespa", "pesos", "setores"], "preview": "bars", "date": "set/2025"},
+    {"id": "br_core_inflation", "path": "notebooks/macroeconomics/br_core_inflation", "theme": "Macro", "level": "Intermediário",
+     "title": "Núcleos de inflação no Brasil",
+     "desc": "IPCA e seus núcleos (EX0, EX3, DP, MS…) via séries do Banco Central, com análise do ano corrente e decomposição sazonal.",
+     "tags": ["IPCA", "núcleos", "BCB/SGS"], "preview": "multi", "date": "2025"},
+    {"id": "ibov_por_governo", "path": "notebooks/projects/ibov_por_governo", "theme": "Projetos", "level": "Iniciante",
+     "title": "Ibovespa por governo federal",
+     "desc": "Desempenho do Ibovespa desde 1968 recortado por mandato presidencial, com retornos mensais e comparações.",
+     "tags": ["Ibovespa", "história", "retornos"], "preview": "gov", "date": "2025"},
+    {"id": "stocks_momentum", "path": "notebooks/technical_indicators/stocks_momentum", "theme": "Indicadores técnicos", "level": "Intermediário",
+     "title": "Momentum de ações", "draft": true,
+     "desc": "Em construção: ranking de momentum de preço (ex.: 12-1 meses) em ações da B3 e a estabilidade desse ranking.",
+     "tags": ["momentum", "ranking", "B3"], "preview": "mom", "date": "em breve"}
+  ]
+}

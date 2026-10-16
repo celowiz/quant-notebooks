@@ -58,7 +58,7 @@
     <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
     <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
     <!-- /TODO -->
-    <title>stocks momentum</title>
+    <title>Momentum de ações · Quant Notebooks</title>
     <script type="module" crossorigin crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.15.2/dist/assets/index-BB71mG_d.js"></script>
     <link rel="stylesheet" crossorigin crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.15.2/dist/assets/index-DryPQDfA.css">
   
@@ -66,7 +66,7 @@
     window.__MARIMO_STATIC__ = {};
     window.__MARIMO_STATIC__.files = {};
 </script>
-</head>
+<!--qn-theme--><link rel="stylesheet" href="../../assets/qn.css?v=2"><link rel="stylesheet" href="../../assets/nb.css?v=2"><meta name="description" content="Em construção: ranking de momentum de preço (ex.: 12-1 meses) em ações da B3 e a estabilidade desse ranking."><script>window.QN_NB={"title": "Momentum de ações", "short": "Momentum de ações", "theme": "Indicadores técnicos", "level": "Intermediário", "date": "em breve", "minutes": 3, "tags": ["momentum", "ranking", "B3"], "repo": "https://github.com/celowiz/quant-notebooks", "portfolio": "https://celowiz.github.io/", "file": "notebooks/technical_indicators/stocks_momentum.py", "source": "https://github.com/celowiz/quant-notebooks/blob/main/notebooks/technical_indicators/stocks_momentum.py", "raw": "https://raw.githubusercontent.com/celowiz/quant-notebooks/main/notebooks/technical_indicators/stocks_momentum.py", "related": [{"path": "notebooks/projects/rrg", "title": "Relative Rotation Graph (RRG)"}, {"path": "notebooks/data_extractor/yfinance_guide", "title": "Guia de yfinance para análise de ações"}], "assets": "../../assets/"}</script><script defer src="../../assets/nb.js?v=2"></script><!--/qn-theme--></head>
   <body>
     <div id="root"></div>
     <!-- This is a portal for the data editor to render in -->
@@ -77,20 +77,20 @@
             "mode": "read",
             "version": "0.15.2",
             "serverToken": "static",
-            "config": {"ai": {"models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false}, "display": {"cell_output": "above", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": false, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": true}}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "config": {"ai": {"models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false}, "display": {"cell_output": "above", "code_editor_font_size": 13, "custom_css": [], "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": false, "theme": "dark"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": true}}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
             "configOverrides": {},
-            "appConfig": {"sql_output": "auto", "width": "compact"},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
             "view": {"showAppCode": true},
-            "notebook": {"cells": [{"code": "", "code_hash": null, "config": {"column": null, "disabled": false, "hide_code": false}, "id": "Hbol", "name": "_"}], "metadata": {"marimo_version": "0.15.2"}, "version": "1"},
-            "session": {"cells": [{"code_hash": null, "console": [], "id": "Hbol", "outputs": [{"data": {"text/plain": ""}, "type": "data"}]}], "metadata": {"marimo_version": "0.15.2"}, "version": "1"},
+            "notebook": {"cells": [{"code": "import marimo as mo", "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e", "config": {"column": null, "disabled": false, "hide_code": true}, "id": "Hbol", "name": "_"}, {"code": "mo.md(\n    r\"\"\"\n# Stocks Momentum \u2014 Ranking de momentum de a\u00e7\u00f5es\n\n/// admonition | Em constru\u00e7\u00e3o\nEste notebook ainda est\u00e1 sendo escrito. A ideia \u00e9 estudar **momentum de pre\u00e7o** em a\u00e7\u00f5es da B3:\nretornos acumulados em janelas (ex.: 12-1 meses), ranking cross-sectional e a estabilidade\ndesse ranking ao longo do tempo.\n///\n\nConte\u00fado educacional \u2014 n\u00e3o \u00e9 recomenda\u00e7\u00e3o de investimento.\n\n**Author:** Marcelo Wizenberg\n\"\"\"\n)", "code_hash": "321b25a425769f238023eac69aaad9af", "config": {"column": null, "disabled": false, "hide_code": true}, "id": "MJUe", "name": "_"}], "metadata": {"marimo_version": "0.15.2"}, "version": "1"},
+            "session": {"cells": [{"code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e", "console": [], "id": "Hbol", "outputs": [{"data": {"text/plain": ""}, "type": "data"}]}, {"code_hash": "321b25a425769f238023eac69aaad9af", "console": [], "id": "MJUe", "outputs": [{"data": {"text/html": "<span class=\"markdown prose dark:prose-invert\"><h1 id=\"stocks-momentum-ranking-de-momentum-de-acoes\">Stocks Momentum \u2014 Ranking de momentum de a\u00e7\u00f5es</h1>\n<div class=\"admonition\">\n<p class=\"admonition-title\">Em constru\u00e7\u00e3o</span>\n<span class=\"paragraph\">Este notebook ainda est\u00e1 sendo escrito. A ideia \u00e9 estudar <strong>momentum de pre\u00e7o</strong> em a\u00e7\u00f5es da B3:\nretornos acumulados em janelas (ex.: 12-1 meses), ranking cross-sectional e a estabilidade\ndesse ranking ao longo do tempo.</span>\n</div>\n<span class=\"paragraph\">Conte\u00fado educacional \u2014 n\u00e3o \u00e9 recomenda\u00e7\u00e3o de investimento.</span>\n<span class=\"paragraph\"><strong>Author:</strong> Marcelo Wizenberg</span></span>"}, "type": "data"}]}], "metadata": {"marimo_version": "0.15.2"}, "version": "1"},
             "runtimeConfig": null,
         };
     </script>
   
 <marimo-code hidden="">
-    import%20marimo%0A%0A__generated_with%20%3D%20%220.15.2%22%0Aapp%20%3D%20marimo.App()%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A
+    import%20marimo%0A%0A__generated_with%20%3D%20%220.15.2%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20r%22%22%22%0A%20%20%20%20%23%20Stocks%20Momentum%20%E2%80%94%20Ranking%20de%20momentum%20de%20a%C3%A7%C3%B5es%0A%0A%20%20%20%20%2F%2F%2F%20admonition%20%7C%20Em%20constru%C3%A7%C3%A3o%0A%20%20%20%20Este%20notebook%20ainda%20est%C3%A1%20sendo%20escrito.%20A%20ideia%20%C3%A9%20estudar%20**momentum%20de%20pre%C3%A7o**%20em%20a%C3%A7%C3%B5es%20da%20B3%3A%0A%20%20%20%20retornos%20acumulados%20em%20janelas%20(ex.%3A%2012-1%20meses)%2C%20ranking%20cross-sectional%20e%20a%20estabilidade%0A%20%20%20%20desse%20ranking%20ao%20longo%20do%20tempo.%0A%20%20%20%20%2F%2F%2F%0A%0A%20%20%20%20Conte%C3%BAdo%20educacional%20%E2%80%94%20n%C3%A3o%20%C3%A9%20recomenda%C3%A7%C3%A3o%20de%20investimento.%0A%0A%20%20%20%20**Author%3A**%20Marcelo%20Wizenberg%0A%20%20%20%20%22%22%22%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A
 </marimo-code>
 
-<marimo-code-hash hidden="">eea99e6e77b2c476ecf36f8b28b31cb4cc0b3cdc9ed3f6ec2d6759cbdc6b2640</marimo-code-hash>
+<marimo-code-hash hidden="">aeb8966ddf09264de81144752fad0cccf864c9c667003b65937226a80521b46e</marimo-code-hash>
 </body>
 </html>

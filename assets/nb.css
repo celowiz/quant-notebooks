@@ -1,0 +1,55 @@
+/* Tema Quant Notebooks aplicado sobre o export estático do marimo */
+body.qn-nb{background:var(--ink)!important;--background:#050506;--foreground:#f4f1ea;--border:#1c1c1f;--muted:#0b0b0d}
+body.qn-nb #root{position:fixed!important;top:64px;left:0;right:0;bottom:0;width:auto!important;height:auto!important}
+body.qn-nb #App{background:var(--ink)!important;color:var(--paper);font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
+.qn-nav{position:fixed;top:0;left:0;right:0;z-index:60}
+/* esconder banner "Static marimo notebook" (substituído pelos botões do tema) */
+.qn-hide{display:none!important}
+/* tipografia */
+#App .markdown{font-family:Inter,system-ui,sans-serif;color:#d4d4d8;font-size:15px;line-height:1.7}
+#App .markdown h1,#App .markdown h2,#App .markdown h3,#App .markdown h4{font-family:var(--serif)!important;font-weight:400!important;color:var(--paper)!important;letter-spacing:0}
+#App .markdown h1{font-size:44px;line-height:1.1;margin:.2em 0 .5em}
+#App .markdown h2{font-size:30px;margin:1.6em 0 .5em;padding-top:1.1em;border-top:1px solid var(--line)}
+#App .markdown h3{font-size:22px;margin-top:1.4em}
+#App .markdown a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(45,212,191,.35)}
+#App .markdown strong{color:var(--paper)}
+#App .markdown code{font-family:var(--mono);background:#111114;border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:#5eead4;font-size:.88em}
+#App .markdown li::marker{color:var(--teal)}
+#App .markdown blockquote{border-left:2px solid var(--teal);color:var(--mut)}
+#App .markdown details,#App .markdown .admonition{background:var(--qcard)!important;border:1px solid var(--line)!important;border-radius:10px}
+/* células de código */
+#App .marimo-cell .tray,#App .marimo-cell .cm-editor,#App .marimo-cell .cm-gutters{background:#0b0b0d!important}
+#App .marimo-cell:has(.cm-editor) .tray{border:1px solid var(--line)!important;border-radius:10px!important;box-shadow:none!important;overflow:hidden}
+#App .cm-content,#App .cm-gutters{font-family:var(--mono)!important;font-size:12.5px!important}
+#App .cm-gutters{border-right:1px solid var(--line)!important;color:#52525b!important}
+.qn-code-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:#0b0b0d;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:0 0 8px;color:var(--mut);font:12px var(--mono);cursor:pointer;text-align:left}
+.qn-code-toggle:hover{color:var(--paper);border-color:#2a2a2f}.qn-code-toggle span:last-child{color:#52525b}
+.qn-collapsed>div>.tray,.qn-collapsed .tray{display:none!important}
+/* outputs */
+#App .output{color:#e4e4e7}
+#App .output img{border-radius:8px}
+#App table{font-size:12.5px}
+/* cabeçalho editorial */
+.qn-head{margin:28px 0 0;font:11px var(--mono);color:var(--dim);letter-spacing:.04em}
+.qn-head .eyebrow{display:block;margin-bottom:6px}
+/* trilhos laterais */
+.qn-rail{position:fixed;top:64px;bottom:0;width:250px;padding:26px 22px;overflow:auto;z-index:50;font-size:13px}
+.qn-toc{left:0;border-right:1px solid var(--line)}
+.qn-side{right:0;width:270px;border-left:1px solid var(--line)}
+.qn-rail .eyebrow{font-size:11px;margin:0 0 12px}
+.qn-toc ol{list-style:none;margin:0 0 22px;padding:0 0 0 2px;border-left:1px solid var(--line)}
+.qn-toc li a{display:block;padding:5px 10px;color:var(--mut);text-decoration:none;line-height:1.35;border-left:2px solid transparent;margin-left:-2px}
+.qn-toc li.l1 a{color:var(--paper)}
+.qn-toc li a:hover{color:var(--paper)}.qn-toc li a.on{color:var(--teal);border-left-color:var(--teal)}
+.qn-prog{height:3px;background:var(--line);border-radius:2px;margin-top:8px;overflow:hidden}.qn-prog i{display:block;height:100%;width:0;background:var(--teal)}
+.qn-side .btn{display:flex;width:100%;margin:0 0 8px;justify-content:flex-start}
+.qn-side section{margin-bottom:24px}
+.qn-cmd{display:block;font:11px/1.5 var(--mono);color:var(--mut);background:#0b0b0d;border:1px solid var(--line);border-radius:8px;padding:10px;white-space:pre-wrap;word-break:break-all;margin-top:4px}
+.qn-side a.rel{display:block;color:var(--mut);text-decoration:none;padding:3px 0}.qn-side a.rel:hover{color:var(--teal)}
+@media (min-width:1200px){body.qn-nb #root{left:250px;right:270px}}
+@media (max-width:1199px){.qn-rail{display:none}.qn-mobile-bar{display:flex!important}}
+.qn-mobile-bar{display:none;position:fixed;top:64px;left:0;right:0;z-index:55;gap:8px;padding:8px 16px;background:rgba(5,5,6,.95);border-bottom:1px solid var(--line);overflow-x:auto}
+.qn-mobile-bar .btn{padding:6px 12px;font-size:12px;white-space:nowrap}
+@media (max-width:1199px){body.qn-nb #root{top:113px}}
+@media (max-width:720px){#App .markdown h1{font-size:32px}#App .markdown h2{font-size:24px}}
+body.qn-nb li[data-radix-collection-item]{display:none!important}

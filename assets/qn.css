@@ -1,0 +1,20 @@
+@font-face{font-family:Inter;src:url(inter.woff2) format('woff2-variations');font-weight:100 900;font-display:swap}
+:root{--ink:#050506;--paper:#f4f1ea;--teal:#2dd4bf;--gr:#3f3f46;--mut:#a1a1aa;--dim:#71717a;--line:#1c1c1f;--qcard:#09090b;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.qn-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 40px;border-bottom:1px solid var(--line);background:rgba(5,5,6,.92);backdrop-filter:blur(8px)}
+.qn-logo{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mut);text-decoration:none;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qn-logo .sep{color:var(--gr)}.qn-logo .cur{color:var(--paper)}
+.mw{flex:none;white-space:nowrap;width:36px;height:32px;border:1px solid #2a2f36;border-radius:9px;display:flex;align-items:center;justify-content:center;font:700 13px var(--mono);letter-spacing:-1px;color:var(--paper)}.mw b{color:var(--teal)}
+.qn-links{display:flex;gap:26px;font-size:14px;white-space:nowrap}.qn-links a{color:var(--mut);text-decoration:none}.qn-links a:hover,.qn-links a.on{color:var(--paper)}
+.eyebrow{font:12px var(--mono);letter-spacing:.14em;color:var(--teal);text-transform:uppercase}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
+.chip{display:inline-flex;align-items:center;border:1px solid var(--gr);border-radius:99px;padding:5px 12px;font:12px Inter,sans-serif;color:var(--mut);margin:0 6px 6px 0;background:none;cursor:pointer}
+.chip:hover{color:var(--paper)}.chip.on{border-color:var(--teal);color:var(--teal);background:rgba(45,212,191,.08)}
+.chip.static{cursor:default}
+.ill{font:10px var(--mono);color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--gr);padding:9px 16px;border-radius:8px;font-size:13px;color:var(--paper);text-decoration:none;background:none;cursor:pointer}
+.btn:hover{border-color:var(--mut)}.btn.p{background:var(--teal);color:#042f2e;border-color:var(--teal);font-weight:600}
+.disclaimer{font-size:12px;color:var(--dim);line-height:1.6}
+@media (max-width:720px){.qn-nav{padding:0 16px}.qn-logo .hide-sm{display:none}.qn-links{gap:14px;font-size:13px}.qn-links .hide-sm{display:none}}

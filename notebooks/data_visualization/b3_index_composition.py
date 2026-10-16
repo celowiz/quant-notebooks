@@ -18,7 +18,7 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(r"""## 1. Library Imports""")
+    mo.md(r"""## 0. Library Imports""")
     return
 
 
@@ -48,7 +48,7 @@ def _(mo):
     ### Broad Indices: 
     - [Bovespa Index (Ibovespa)](https://www.b3.com.br/en_us/market-data-and-indices/indices/broad-indices/indice-ibovespa-ibovespa-composition-index-portfolio.htm)
     - [Bovespa B3 BR+ (Ibovespa B3 BR+)](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/bovespa-b3-br-index-ibovespa-b3-br-composition-index-portfolio.htm)
-    - [B3 BR+ Equal Weight Bovespa Index (Ibovespa B3 BR+ Equal Weight)**](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/b3-br-equal-weight-bovespa-index-ibovespa-b3-br-equal-weight-composition-index-portfolio.htm)
+    - [B3 BR+ Equal Weight Bovespa Index (Ibovespa B3 BR+ Equal Weight)](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/b3-br-equal-weight-bovespa-index-ibovespa-b3-br-equal-weight-composition-index-portfolio.htm)
     - [Brazil 100 Index (IBrX 100)](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/indice-brasil-100-ibrx-100-composition-index-portfolio.htm)
     - [Brazil 50 Index (IBrX 50)](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/indice-brasil-50-ibrx-50-composition-index-portfolio.htm)
     - [Brazil Broad-Based Index (IBrA)](https://www.b3.com.br/en_us/market-data-and-indices/indexes/broad-indexes/brazil-broad-based-index-ibra-composition-index-portfolio.htm) 

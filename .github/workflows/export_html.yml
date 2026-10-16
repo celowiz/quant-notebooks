@@ -77,47 +77,8 @@ jobs:
             echo "CONVERSION_FAILED=false" >> $GITHUB_ENV
           fi
 
-      - name: Generate index.html with Tailwind
-        run: |
-          echo "<!DOCTYPE html>" > index.html
-          echo "<html lang='en'>" >> index.html
-          echo "<head>" >> index.html
-          echo "  <meta charset='UTF-8'>" >> index.html
-          echo "  <meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
-          echo "  <title>Quant Notebooks</title>" >> index.html
-          echo "  <script src='https://cdn.tailwindcss.com'></script>" >> index.html
-          echo "</head>" >> index.html
-          echo "<body class='bg-gray-50 text-gray-900 font-sans'>" >> index.html
-          echo "  <div class='max-w-4xl mx-auto p-8'>" >> index.html
-          echo "    <h1 class='text-3xl font-bold mb-6'>📚 Quant Notebooks</h1>" >> index.html
-          
-          # Process each category folder
-          for folder in notebooks/*/; do
-            if [ -d "$folder" ] && ls "$folder"*.html >/dev/null 2>&1; then
-              folder_name=$(basename "$folder")
-              # Convert underscores to spaces for display
-              display_name=$(echo "$folder_name" | tr '_' ' ' | sed 's/\b\w/\u&/g')
-              echo "    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>$display_name</h2>" >> index.html
-              echo "    <ul class='space-y-3 mb-6'>" >> index.html
-              
-              for file in "$folder"*.html; do
-                if [ -f "$file" ]; then
-                  name=$(basename "$file" .html)
-                  echo "      <li>" >> index.html
-                  echo "        <a href='$file' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>" >> index.html
-                  echo "          <span class='font-medium text-lg text-gray-800'>$name</span><br>" >> index.html
-                  echo "          <span class='text-sm text-gray-500'>$display_name</span>" >> index.html
-                  echo "        </a>" >> index.html
-                  echo "      </li>" >> index.html
-                fi
-              done
-              echo "    </ul>" >> index.html
-            fi
-          done
-          
-          echo "  </div>" >> index.html
-          echo "</body></html>" >> index.html
-
+      - name: Build site (home + tema dos notebooks)
+        run: uv run python scripts/build_site.py
 
       - name: Commit and push HTML files
         if: always()  # Run even if some conversions failed
