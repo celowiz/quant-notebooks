@@ -1,64 +1,49 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Quant Notebooks</title>
-  <script src='https://cdn.tailwindcss.com'></script>
-</head>
-<body class='bg-gray-50 text-gray-900 font-sans'>
-  <div class='max-w-4xl mx-auto p-8'>
-    <h1 class='text-3xl font-bold mb-6'>📚 Quant Notebooks</h1>
-    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>Data Extractor</h2>
-    <ul class='space-y-3 mb-6'>
-      <li>
-        <a href='notebooks/data_extractor/yfinance_guide.html' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>
-          <span class='font-medium text-lg text-gray-800'>yfinance_guide</span><br>
-          <span class='text-sm text-gray-500'>Data Extractor</span>
-        </a>
-      </li>
-    </ul>
-    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>Data Visualization</h2>
-    <ul class='space-y-3 mb-6'>
-      <li>
-        <a href='notebooks/data_visualization/b3_index_composition.html' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>
-          <span class='font-medium text-lg text-gray-800'>b3_index_composition</span><br>
-          <span class='text-sm text-gray-500'>Data Visualization</span>
-        </a>
-      </li>
-    </ul>
-    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>Macroeconomics</h2>
-    <ul class='space-y-3 mb-6'>
-      <li>
-        <a href='notebooks/macroeconomics/br_core_inflation.html' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>
-          <span class='font-medium text-lg text-gray-800'>br_core_inflation</span><br>
-          <span class='text-sm text-gray-500'>Macroeconomics</span>
-        </a>
-      </li>
-    </ul>
-    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>Projects</h2>
-    <ul class='space-y-3 mb-6'>
-      <li>
-        <a href='notebooks/projects/ibov_por_governo.html' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>
-          <span class='font-medium text-lg text-gray-800'>ibov_por_governo</span><br>
-          <span class='text-sm text-gray-500'>Projects</span>
-        </a>
-      </li>
-      <li>
-        <a href='notebooks/projects/rrg.html' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>
-          <span class='font-medium text-lg text-gray-800'>rrg</span><br>
-          <span class='text-sm text-gray-500'>Projects</span>
-        </a>
-      </li>
-    </ul>
-    <h2 class='text-2xl font-semibold mt-8 mb-4 text-gray-700 border-b border-gray-300 pb-2'>Technical Indicators</h2>
-    <ul class='space-y-3 mb-6'>
-      <li>
-        <a href='notebooks/technical_indicators/stocks_momentum.html' class='block p-4 bg-white rounded-xl shadow hover:bg-gray-100 transition-colors duration-200'>
-          <span class='font-medium text-lg text-gray-800'>stocks_momentum</span><br>
-          <span class='text-sm text-gray-500'>Technical Indicators</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quant Notebooks · Marcelo Wizenberg</title>
+<meta name="description" content="Notebooks educacionais de pesquisa quantitativa sobre B3, macro e indicadores, com código aberto em Python (marimo).">
+<link rel="stylesheet" href="assets/qn.css?v=2"><link rel="stylesheet" href="assets/home.css?v=2">
+</head><body>
+<header class="qn-nav"><a class="qn-logo" href="https://celowiz.github.io/"><span class="mw">m<b>w</b></span><span class="hide-sm">Marcelo Wizenberg</span><span class="sep hide-sm">/</span><span class="cur">Quant Notebooks</span></a>
+<nav class="qn-links"><a href="https://celowiz.github.io/">Portfólio</a><a class="on" href="#galeria">Notebooks</a><a class="hide-sm" href="https://celowiz.github.io/monitor-b3/">Monitor B3</a><a href="https://github.com/celowiz/quant-notebooks" target="_blank" rel="noopener">GitHub ↗</a></nav></header>
+<section class="hero"><canvas id="hero-bg" aria-hidden="true"></canvas>
+<div class="hero-in"><div><div class="eyebrow">Pesquisa quantitativa · aberta</div>
+<h1>Notebooks de mercado,<br><i>do dado ao gráfico.</i></h1>
+<p>Estudos reproduzíveis sobre B3, macro e indicadores — com código, explicações e gráficos. Escritos em Python com marimo, para aprender fazendo.</p>
+<div class="stats"><div><b>6</b>notebooks</div><div><b>5</b>temas</div><div><b>Python</b>marimo · pandas</div></div></div>
+<a class="feat" href="notebooks/projects/rrg.html"><div class="eyebrow">★ Em destaque</div><h2>Relative Rotation Graph (RRG)</h2><p style="color:var(--mut)">Força relativa e momentum de ativos contra um benchmark, com os quatro quadrantes de rotação de Julius de Kempenaer.</p>
+<svg id="feat-svg" viewBox="0 0 426 230" aria-hidden="true"></svg><div class="ill" style="margin-top:6px">gráfico ilustrativo</div>
+<div style="margin-top:14px"><span class="btn p">Abrir notebook →</span></div></a></div></section>
+<main class="wrap" id="galeria"><div class="ghead"><div><div class="eyebrow">Galeria</div><h2>Todos os notebooks</h2></div>
+<div class="filters"><div class="row"><button class="chip on" data-theme-f="Todos">Todos</button><button class="chip" data-theme-f="Dados">Dados</button><button class="chip" data-theme-f="Visualização">Visualização</button><button class="chip" data-theme-f="Macro">Macro</button><button class="chip" data-theme-f="Projetos">Projetos</button><button class="chip" data-theme-f="Indicadores técnicos">Indicadores técnicos</button></div>
+<div class="row"><button class="chip" data-level-f="Iniciante">Iniciante</button><button class="chip" data-level-f="Intermediário">Intermediário</button><button class="chip" data-level-f="Avançado">Avançado</button><input id="q" class="search" type="search" placeholder="⌕ Buscar…" aria-label="Buscar notebooks"></div></div></div>
+<div class="grid"><a class="card" href="notebooks/projects/rrg.html" data-theme="Projetos" data-level="Avançado" data-search="relative rotation graph (rrg) forca relativa e momentum de ativos contra um benchmark, com os quatro quadrantes de rotacao de julius de kempenaer. projetos avancado rrg forca relativa momentum setores">
+<svg viewBox="0 0 392 150" data-kind="rrg" aria-hidden="true"></svg>
+<div style="margin-top:12px"><span class="chip on static">Projetos</span><span class="chip static">Avançado</span></div>
+<h3>Relative Rotation Graph (RRG)</h3><p>Força relativa e momentum de ativos contra um benchmark, com os quatro quadrantes de rotação de Julius de Kempenaer.</p><div class="tags">RRG · força relativa · momentum · setores</div>
+<div class="meta"><span>set/2025</span><span>◷ 18 min de leitura</span></div></a><a class="card" href="notebooks/data_extractor/yfinance_guide.html" data-theme="Dados" data-level="Iniciante" data-search="guia de yfinance para analise de acoes do basico ao avancado: precos historicos, dividendos, splits, demonstrativos, opcoes e volatilidade com a biblioteca yfinance. dados iniciante yfinance pandas ohlcv">
+<svg viewBox="0 0 392 150" data-kind="line" aria-hidden="true"></svg>
+<div style="margin-top:12px"><span class="chip on static">Dados</span><span class="chip static">Iniciante</span></div>
+<h3>Guia de yfinance para análise de ações</h3><p>Do básico ao avançado: preços históricos, dividendos, splits, demonstrativos, opções e volatilidade com a biblioteca yfinance.</p><div class="tags">yfinance · pandas · OHLCV</div>
+<div class="meta"><span>2025</span><span>◷ 10 min de leitura</span></div></a><a class="card" href="notebooks/data_visualization/b3_index_composition.html" data-theme="Visualização" data-level="Iniciante" data-search="composicao dos indices da b3 baixa a carteira teorica dos indices da b3 (ibovespa, ibrx, setoriais) e visualiza os pesos dos componentes. visualizacao iniciante ibovespa pesos setores">
+<svg viewBox="0 0 392 150" data-kind="bars" aria-hidden="true"></svg>
+<div style="margin-top:12px"><span class="chip on static">Visualização</span><span class="chip static">Iniciante</span></div>
+<h3>Composição dos índices da B3</h3><p>Baixa a carteira teórica dos índices da B3 (Ibovespa, IBrX, setoriais) e visualiza os pesos dos componentes.</p><div class="tags">Ibovespa · pesos · setores</div>
+<div class="meta"><span>set/2025</span><span>◷ 9 min de leitura</span></div></a><a class="card" href="notebooks/macroeconomics/br_core_inflation.html" data-theme="Macro" data-level="Intermediário" data-search="nucleos de inflacao no brasil ipca e seus nucleos (ex0, ex3, dp, ms…) via series do banco central, com analise do ano corrente e decomposicao sazonal. macro intermediario ipca nucleos bcb/sgs">
+<svg viewBox="0 0 392 150" data-kind="multi" aria-hidden="true"></svg>
+<div style="margin-top:12px"><span class="chip on static">Macro</span><span class="chip static">Intermediário</span></div>
+<h3>Núcleos de inflação no Brasil</h3><p>IPCA e seus núcleos (EX0, EX3, DP, MS…) via séries do Banco Central, com análise do ano corrente e decomposição sazonal.</p><div class="tags">IPCA · núcleos · BCB/SGS</div>
+<div class="meta"><span>2025</span><span>◷ 12 min de leitura</span></div></a><a class="card" href="notebooks/projects/ibov_por_governo.html" data-theme="Projetos" data-level="Iniciante" data-search="ibovespa por governo federal desempenho do ibovespa desde 1968 recortado por mandato presidencial, com retornos mensais e comparacoes. projetos iniciante ibovespa historia retornos">
+<svg viewBox="0 0 392 150" data-kind="gov" aria-hidden="true"></svg>
+<div style="margin-top:12px"><span class="chip on static">Projetos</span><span class="chip static">Iniciante</span></div>
+<h3>Ibovespa por governo federal</h3><p>Desempenho do Ibovespa desde 1968 recortado por mandato presidencial, com retornos mensais e comparações.</p><div class="tags">Ibovespa · história · retornos</div>
+<div class="meta"><span>2025</span><span>◷ 10 min de leitura</span></div></a><a class="card" href="notebooks/technical_indicators/stocks_momentum.html" data-theme="Indicadores técnicos" data-level="Intermediário" data-search="momentum de acoes em construcao: ranking de momentum de preco (ex.: 12-1 meses) em acoes da b3 e a estabilidade desse ranking. indicadores tecnicos intermediario momentum ranking b3">
+<svg viewBox="0 0 392 150" data-kind="mom" aria-hidden="true"></svg>
+<div style="margin-top:12px"><span class="chip on static">Indicadores técnicos</span><span class="chip static">Intermediário</span></div>
+<h3>Momentum de ações</h3><p>Em construção: ranking de momentum de preço (ex.: 12-1 meses) em ações da B3 e a estabilidade desse ranking.</p><div class="tags">momentum · ranking · B3</div>
+<div class="meta"><span class="draft">● em construção</span><span>◷ 3 min de leitura</span></div></a></div><p class="empty" id="empty">Nenhum notebook com esses filtros.</p>
+<div class="ill" style="margin-top:14px">miniaturas ilustrativas · os gráficos reais estão dentro de cada notebook</div></main>
+<footer><p class="disclaimer">Conteúdo educacional. Nada aqui é recomendação de investimento.<br>Dados de fontes públicas (B3, Banco Central, Yahoo Finance) podem conter atrasos ou erros.</p>
+<p class="disclaimer"><a href="https://celowiz.github.io/">← celowiz.github.io</a> · <a href="https://github.com/celowiz/quant-notebooks">código-fonte</a></p></footer>
+<script src="assets/previews.js?v=2"></script><script src="assets/home.js?v=2"></script>
 </body></html>

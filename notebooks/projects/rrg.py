@@ -27,15 +27,15 @@ def _(mo):
     RRG was developed by Julius de Kempenaer and visualizes relative performance in four quadrants:
 
     - 🟢 **Leading (top-right):** The asset is stronger than the benchmark and it's getting stronger (positive momentum).
-    - 🟡 **Weakening** (bottom-right):** The asset is stronger than the benchmark, but it's getting weaker (negative momentum).
-    - 🔴 **Lagging** (bottom-left):** The asset is weaker than the benchmark and it's getting weaker.
-    - 🔵 **Improving** (top-right):** The asset is weaker than the benchmark, but it's getting stronger.
+    - 🟡 **Weakening (bottom-right):** The asset is stronger than the benchmark, but it's getting weaker (negative momentum).
+    - 🔴 **Lagging (bottom-left):** The asset is weaker than the benchmark and it's getting weaker.
+    - 🔵 **Improving (top-left):** The asset is weaker than the benchmark, but it's getting stronger.
 
     /// details | References: 
     - [RRG Weights - Optuma Whitepaper](https://www.optuma.com/wp-content/uploads/2023/02/RRG-Weights.pdf)
-    - [StockCharts – Relative Rotation Graphs (RRG)]([https://school.stockcharts.com/doku.php?id=chart_analysis:rrg_charts](https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/rrg-relative-strength?utm_source=chatgpt.com))
-    - [Investopedia – Relative Rotation Graph (RRG)]([https://www.investopedia.com/terms/r/relative-rotation-graph-rrg.asp](https://www.investopedia.com/relative-rotation-graph-8418457))
-    - [Official RRG educational page]([https://relativerotationgraphs.com/blog/](https://relativerotationgraphs.com/educational/))
+    - [StockCharts – Relative Rotation Graphs (RRG)](https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/rrg-relative-strength)
+    - [Investopedia – Relative Rotation Graph (RRG)](https://www.investopedia.com/relative-rotation-graph-8418457)
+    - [Official RRG educational page](https://relativerotationgraphs.com/educational/)
 
     ///
 
@@ -306,7 +306,7 @@ def _(get_asset_tickers, universe_dropdown):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## 2. RRG Class""")
+    mo.md(r"""## 4. RRG Class""")
     return
 
 
@@ -753,7 +753,7 @@ def _(
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Run Analysis""")
+    mo.md(r"""## 5. Run Analysis""")
     return
 
 

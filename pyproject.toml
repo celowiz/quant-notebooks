@@ -23,3 +23,7 @@ dependencies = [
     "xlrd>=2.0.2",
     "yfinance>=0.2.65",
 ]
+
+[tool.marimo.display]
+theme = "dark"
+code_editor_font_size = 13
