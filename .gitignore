@@ -91,3 +91,8 @@ Pipfile.lock
 poetry.lock
 # Keep uv.lock for reproducible environments
 # uv.lock
+
+# favicons do site
+!/favicon.svg
+!/favicon-32.png
+!/apple-touch-icon.png
