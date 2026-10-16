@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "assets/notebooks.json").read_text(encoding="utf-8"))
 REPO, PORTFOLIO = CFG["repo"], CFG["portfolio"]
-VER = "2"  # cache-busting dos assets
+VER = "3"  # cache-busting dos assets
 
 
 def minutes(py: Path) -> int:
@@ -18,6 +18,24 @@ def minutes(py: Path) -> int:
     words = len(md.split())
     code = max(0, len(src.splitlines()) - md.count("\n"))
     return max(3, round(words / 200 + code / 45))
+
+
+GA_ID = "G-QCBFGR39WG"
+GA_MARK = re.compile(r"<!--qn-ga-->.*?<!--/qn-ga-->", re.S)
+ICON_RE = re.compile(r'<link rel="(?:icon|shortcut icon|apple-touch-icon)"[^>]*>\s*', re.I)
+
+
+def head_extra(root: str, notebook: str) -> str:
+    """Favicon + GA4 (idempotente entre <!--qn-ga--> e <!--/qn-ga-->)."""
+    return (f'<!--qn-ga--><link rel="icon" href="{root}favicon.ico" sizes="48x48">'
+            f'<link rel="icon" type="image/svg+xml" href="{root}favicon.svg">'
+            f'<link rel="icon" type="image/png" sizes="32x32" href="{root}favicon-32.png">'
+            f'<link rel="apple-touch-icon" href="{root}apple-touch-icon.png">'
+            f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+            f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}"
+            f"gtag('js',new Date());gtag('set',{{content_group:'quant-notebooks',notebook:'{notebook}'}});"
+            f"gtag('config','{GA_ID}');</script>"
+            f'<script defer src="{root}assets/ga.js?v={VER}"></script><!--/qn-ga-->')
 
 
 def esc(s):
@@ -34,7 +52,8 @@ published = [n for n in nbs if n["exists"]]
 MARK = re.compile(r"<!--qn-theme-->.*?<!--/qn-theme-->", re.S)
 for nb in published:
     f = ROOT / (nb["path"] + ".html")
-    doc = MARK.sub("", f.read_text(encoding="utf-8"))
+    doc = GA_MARK.sub("", MARK.sub("", f.read_text(encoding="utf-8")))
+    doc = ICON_RE.sub("", doc)
     related = [{"path": o["path"], "title": o["title"]} for o in nbs
                if o is not nb and o["exists"] and (o["theme"] == nb["theme"] or set(o["tags"]) & set(nb["tags"]))][:3]
     if len(related) < 2:
@@ -52,7 +71,8 @@ for nb in published:
             f'<meta name="description" content="{esc(nb["desc"])}">'
             f'<script>window.QN_NB={json.dumps(meta, ensure_ascii=False)}</script>'
             f'<script defer src="../../assets/nb.js?v={VER}"></script><!--/qn-theme-->')
-    doc = doc.replace("</head>", head + "</head>", 1)
+    nb_id = nb["path"].removeprefix("notebooks/")
+    doc = doc.replace("</head>", head + head_extra("../../", nb_id) + "</head>", 1)
     doc = re.sub(r"<title>.*?</title>", f"<title>{esc(nb['title'])} · Quant Notebooks</title>", doc, count=1, flags=re.S)
     f.write_text(doc, encoding="utf-8")
     print("tema aplicado:", f.relative_to(ROOT))
@@ -82,7 +102,7 @@ INDEX = f'''<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Quant Notebooks · Marcelo Wizenberg</title>
 <meta name="description" content="Notebooks educacionais de pesquisa quantitativa sobre B3, macro e indicadores, com código aberto em Python (marimo).">
-<link rel="stylesheet" href="assets/qn.css?v={VER}"><link rel="stylesheet" href="assets/home.css?v={VER}">
+<link rel="stylesheet" href="assets/qn.css?v={VER}"><link rel="stylesheet" href="assets/home.css?v={VER}">{head_extra("", "home")}
 </head><body>
 <header class="qn-nav"><a class="qn-logo" href="{PORTFOLIO}"><span class="mw">m<b>w</b></span><span class="hide-sm">Marcelo Wizenberg</span><span class="sep hide-sm">/</span><span class="cur">Quant Notebooks</span></a>
 <nav class="qn-links"><a href="{PORTFOLIO}">Portfólio</a><a class="on" href="#galeria">Notebooks</a><a class="hide-sm" href="https://celowiz.github.io/monitor-b3/">Monitor B3</a><a href="{REPO}" target="_blank" rel="noopener">GitHub ↗</a></nav></header>
