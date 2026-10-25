@@ -1,5 +1,5 @@
 @font-face{font-family:Inter;src:url(inter.woff2) format('woff2-variations');font-weight:100 900;font-display:swap}
-:root{--ink:#050506;--paper:#f4f1ea;--teal:#2dd4bf;--gr:#3f3f46;--mut:#a1a1aa;--dim:#71717a;--line:#1c1c1f;--qcard:#09090b;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+:root{--ink:#050506;--paper:#f4f1ea;--teal:#2dd4bf;--gr:#3f3f46;--mut:#a1a1aa;--dim:#8a8a93;--line:#1c1c1f;--qcard:#09090b;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:var(--ink);color:var(--paper);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}

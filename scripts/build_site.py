@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "assets/notebooks.json").read_text(encoding="utf-8"))
 REPO, PORTFOLIO = CFG["repo"], CFG["portfolio"]
-VER = "3"  # cache-busting dos assets
+VER = "4"  # cache-busting dos assets
 
 
 def minutes(py: Path) -> int:
