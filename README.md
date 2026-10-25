@@ -230,7 +230,7 @@ This is a learning and research repository. Feel free to:
 
 ## 📝 License
 
-This project is open source and available under the [MIT License](LICENSE).
+Code (notebooks `.py`, scripts and site assets) is under the [MIT License](LICENSE). Written content (explanatory text and figures by the author) is under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Market data from third-party sources keeps its own terms.
 
 ## 🔗 Useful Links
 

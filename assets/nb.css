@@ -21,9 +21,9 @@ body.qn-nb #App{background:var(--ink)!important;color:var(--paper);font-family:I
 #App .marimo-cell .tray,#App .marimo-cell .cm-editor,#App .marimo-cell .cm-gutters{background:#0b0b0d!important}
 #App .marimo-cell:has(.cm-editor) .tray{border:1px solid var(--line)!important;border-radius:10px!important;box-shadow:none!important;overflow:hidden}
 #App .cm-content,#App .cm-gutters{font-family:var(--mono)!important;font-size:12.5px!important}
-#App .cm-gutters{border-right:1px solid var(--line)!important;color:#52525b!important}
+#App .cm-gutters{border-right:1px solid var(--line)!important;color:#8a8a93!important}
 .qn-code-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:#0b0b0d;border:1px solid var(--line);border-radius:10px;padding:9px 14px;margin:0 0 8px;color:var(--mut);font:12px var(--mono);cursor:pointer;text-align:left}
-.qn-code-toggle:hover{color:var(--paper);border-color:#2a2a2f}.qn-code-toggle span:last-child{color:#52525b}
+.qn-code-toggle:hover{color:var(--paper);border-color:#2a2a2f}.qn-code-toggle span:last-child{color:#8a8a93}
 .qn-collapsed>div>.tray,.qn-collapsed .tray{display:none!important}
 /* outputs */
 #App .output{color:#e4e4e7}
